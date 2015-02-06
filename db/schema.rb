@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150206031411) do
     t.string   "time"
     t.boolean  "text_sent"
     t.string   "stylized_time"
+    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

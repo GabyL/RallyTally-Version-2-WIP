@@ -5,6 +5,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :time
       t.boolean :text_sent
       t.string :stylized_time
+      t.references :user
 
       t.timestamps null: false
     end
