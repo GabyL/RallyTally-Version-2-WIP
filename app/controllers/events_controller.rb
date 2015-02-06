@@ -1,4 +1,10 @@
 class EventsController < ApplicationController
+
+  def index
+    puts "hello"
+  end
+
+
   def create
   end
 

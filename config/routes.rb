@@ -1,33 +1,35 @@
 Rails.application.routes.draw do
-  get 'users/create'
+  # get 'users/create'
 
-  get 'users/new'
+  # get 'users/new'
 
-  get 'users/edit'
+  # get 'users/edit'
 
-  get 'users/show'
+  # get 'users/show'
 
-  get 'users/update'
+  # get 'users/update'
 
-  get 'users/destroy'
+  # get 'users/destroy'
 
-  get 'texts/create'
+  # get 'texts/create'
 
-  get 'events/create'
+  # get 'events/create'
 
-  get 'events/show'
+  # get 'events/show'
 
-  get 'events/new'
+  # get 'events/new'
 
-  get 'sessions/create'
+  resource :session, only: [:create, :destroy]
 
-  get 'sessions/destroy'
+  resource :user do
+    resource :event, only: [:create, :new, :show]
+  end
 
-  get 'session/create'
 
-  get 'session/destroy'
+  root to: 'events#index'
 
-  # The priority is based upon order of creation: first created -> highest priority.
+
+  # The priority is based upon order of creation: first created -> hig:hest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
