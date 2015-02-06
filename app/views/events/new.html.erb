@@ -1,5 +1,31 @@
+<%= form_for @event, url: {action: 'create'}, do |f| %>
 
-<form class method="post" action="/events/new">
+<div>
+  <%= f.label "title" %><br>
+  <%= f.text_field "title" %>
+</div>
+
+<div>
+  <%= form_tag movies_path, method: :get do %>
+  <%= label_tag(:field, "Search:") %>
+  <%= text_field_tag :field, params[:field] %>  
+
+
+  <%= f.label "hour" %>
+  <select name="runtime_in_minutes" id="runtime_in_minutes">
+    <option>Run time minutes</option>
+    <option value="1">Under 90 mins</option>
+    <option value="2">90-120 mins</option>
+    <option value="3">Over 120 mins</option>
+  </select>  
+
+<%= submit_tag("Submit", name: nil) %>
+<% end %>
+
+
+
+
+<form class method="post" action="/events/create">
  <!--method="POST" action="/login"-->
   <div>
     <div><br><h1>STEP 1:<br><h2>Event Name & Time</h2></h1><br></div><br>
