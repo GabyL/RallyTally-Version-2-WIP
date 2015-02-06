@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  time: MyString
+  text_sent: false
+  stylized_time: MyString
+
+two:
+  title: MyString
+  time: MyString
+  text_sent: false
+  stylized_time: MyString
