@@ -16,19 +16,19 @@ class EventsController < ApplicationController
 
     time = "#{hour}:#{minutes}:00 +0000".to_datetime
 
-
     title = params[:title]
-
 
     @event = Event.new(title: title, time: time)
     if @event.save
-      redirect_to user_event_venue_path # notice "#{@event.title}'s time has been set!"
+      redirect_to new_event_venues_path(event_id: @event.id)
+
     else
       render :new
     end
   end
 
   def show
+    render :index
   end
 
   def new

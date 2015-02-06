@@ -1,12 +1,8 @@
 class VenuesController < ApplicationController
 
-  def index
-    render :venues
-  end
-
 
   def create
-    @venue = Venue.new(params)
+    @venue = Venue.new(params[:event_id])
     if @venue.save
       redirect_to user_event_guests_path
     else
@@ -16,6 +12,13 @@ class VenuesController < ApplicationController
 
   def new
     @venue = Venue.new
+  end
+
+
+  protected
+
+  def venue_params
+    params.require(:venue).permit(:event_id)
   end
 
 end
