@@ -1,9 +1,5 @@
 class VenuesController < ApplicationController
 
-  def index
-    render :venues
-  end
-
 
   def create
     @venue = Venue.new(params)
@@ -15,7 +11,7 @@ class VenuesController < ApplicationController
   end
 
   def new
-    @venue = Venue.new
+    
   end
 
 end

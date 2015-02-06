@@ -22,13 +22,14 @@ class EventsController < ApplicationController
 
     @event = Event.new(title: title, time: time)
     if @event.save
-      redirect_to user_event_venue_path # notice "#{@event.title}'s time has been set!"
+      redirect_to new_user_event_venue_path # notice "#{@event.title}'s time has been set!"
     else
       render :new
     end
   end
 
   def show
+    render :index
   end
 
   def new
