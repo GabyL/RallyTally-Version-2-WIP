@@ -1,10 +1,11 @@
+
 class VenuesController < ApplicationController
 
 
   def create
-    @venue = Venue.new(params[:event_id])
+    @venue = Venue.new(event_id: params[:event_id], name: params[:name])
     if @venue.save
-      redirect_to user_event_guests_path
+      redirect_to new_event_guests_path(event_id: @venue.event_id)
     else
       render :new
     end
@@ -15,11 +16,6 @@ class VenuesController < ApplicationController
   end
 
 
-  protected
-
-  def venue_params
-    params.require(:venue).permit(:event_id)
-  end
 
 end
 

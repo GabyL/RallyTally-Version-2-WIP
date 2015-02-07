@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206220818) do
+ActiveRecord::Schema.define(version: 20150207005536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,6 @@ ActiveRecord::Schema.define(version: 20150206220818) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "events_guests_joins", force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "guest_id"
-    t.boolean "declined_invitation", default: false
-  end
-
   create_table "guests", force: :cascade do |t|
     t.string   "name"
     t.string   "phone"
@@ -40,9 +34,15 @@ ActiveRecord::Schema.define(version: 20150206220818) do
   end
 
   create_table "invitations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "guest_id"
+    t.integer  "event_id"
+    t.boolean  "declined_invitation", default: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
+
+  add_index "invitations", ["event_id"], name: "index_invitations_on_event_id", using: :btree
+  add_index "invitations", ["guest_id"], name: "index_invitations_on_guest_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 20150206220818) do
   add_index "votes", ["guest_id"], name: "index_votes_on_guest_id", using: :btree
   add_index "votes", ["venue_id"], name: "index_votes_on_venue_id", using: :btree
 
+  add_foreign_key "invitations", "events"
+  add_foreign_key "invitations", "guests"
   add_foreign_key "venues", "events"
   add_foreign_key "votes", "events"
   add_foreign_key "votes", "guests"

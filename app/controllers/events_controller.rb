@@ -34,4 +34,11 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
   end
+
+  def confirmation
+    render :confirmation
+  end
+
+
+
 end
