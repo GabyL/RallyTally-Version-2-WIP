@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
  
   resources :events, only: [:create, :new, :show] do
+    resource :details, only: [:show]
     resource :confirmation, only: [:show]
     resource :venues, only: [:create, :new]
     resource :guests, only: [:create, :new]

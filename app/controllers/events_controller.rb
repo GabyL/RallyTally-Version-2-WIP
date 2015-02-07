@@ -28,7 +28,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    render :index
+    render :show
   end
 
   def new

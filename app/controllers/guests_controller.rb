@@ -3,13 +3,13 @@ class GuestsController < ApplicationController
 
   def create
     @guest = Guest.new(
-      event_id: params[:event_id], 
       name: params[:name], 
       phone: params[:phone]
       )
     
     if @guest.save
-      redirect_to new_event_guests_path(event_id: @guest.event_id)
+      @guest.invitations.create(event_id: params[:event_id])
+      redirect_to event_confirmation_path(event_id: params[:event_id])
     else
       render :new
     end
