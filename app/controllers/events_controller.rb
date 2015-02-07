@@ -28,10 +28,17 @@ class EventsController < ApplicationController
   end
 
   def show
-    render :index
+    render :show
   end
 
   def new
     @event = Event.new
   end
+
+  def confirmation
+    render :confirmation
+  end
+
+
+
 end
