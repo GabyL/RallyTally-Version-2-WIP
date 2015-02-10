@@ -1,3 +1,5 @@
+require 'pry'
+
 class EventsController < ApplicationController
 
   def index
@@ -14,14 +16,16 @@ class EventsController < ApplicationController
       hour += 12
     end
 
-    time = "#{hour}:#{minutes}:00 +0000".to_datetime
+    year = Time.now.year
+    month = Time.now.month
+    day = Time.now.day
 
-    title = params[:title]
+    time = "#{year}-#{month}-#{day} #{hour}:#{minutes}:#00 +0000".to_datetime
 
-    @event = Event.new(title: title, time: time)
+    title = params[:event][:title]
+    @event = Event.new(title: title, time: time, user_id: current_user.id)
     if @event.save
       redirect_to new_event_venues_path(event_id: @event.id)
-
     else
       render :new
     end
@@ -39,6 +43,8 @@ class EventsController < ApplicationController
     render :confirmation
   end
 
-
+  def details
+    render :details
+  end  
 
 end

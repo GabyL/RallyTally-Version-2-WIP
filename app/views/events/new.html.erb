@@ -2,11 +2,11 @@
 
 <div>
   <%= f.label "title" %><br>
-  <%= f.text_field "title" %>
+  <%= f.text_field :title %>
 </div>
 
 <div>
-  <%= f.select :time, options_for_select(
+  <%= select_tag :hour, options_for_select(
     [
       ['hour'],
       ['1',1],
@@ -23,7 +23,7 @@
       ['12',12],
     ]
       ) %>
-    <%= f.select :time, options_for_select(
+    <%= select_tag :minutes, options_for_select(
     [
       ['minute'],
       ['00',00],
@@ -32,7 +32,7 @@
       ['45',45]
     ]
       ) %>
-    <%= f.select :time, options_for_select(
+    <%= select_tag :am_pm, options_for_select(
     [
       ['pm',12],
       ['am',0]

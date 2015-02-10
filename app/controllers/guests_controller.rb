@@ -1,7 +1,10 @@
+require 'pry'
+
 class GuestsController < ApplicationController
 
 
   def create
+          binding.pry
     @guest = Guest.new(
       name: params[:name], 
       phone: params[:phone]
