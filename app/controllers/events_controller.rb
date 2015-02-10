@@ -44,6 +44,7 @@ class EventsController < ApplicationController
   end
 
   def details
+    @event = Event.where(id: params[:event_id]).first
     render :details
   end  
 

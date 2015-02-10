@@ -1,1 +1,12 @@
 deets.
+<br>
+Guests:
+<% @event.guests.each do |guest| %>
+  <li><%= guest.name %>
+<% end %>
+
+<br>
+Venues:
+<% @event.venues.each do |venue| %>
+  <li><%= venue.name %>
+<% end %>
