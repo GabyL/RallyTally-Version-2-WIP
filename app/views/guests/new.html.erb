@@ -1,0 +1,21 @@
+ <%= form_for @guest, url: {action: 'create'} do |f| %>
+
+<div>
+  <%= f.label "name" %><br>
+  <%= f.text_field :name %>
+</div>
+<div>
+  <%= f.label "phone" %><br>
+  <%= f.text_field :phone %>
+</div>
+
+
+<%= f.submit "Submit" %>
+<% end %>
+
+
+
+
+
+
+  
