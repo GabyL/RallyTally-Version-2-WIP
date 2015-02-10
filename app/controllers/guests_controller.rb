@@ -4,12 +4,13 @@ class GuestsController < ApplicationController
 
 
   def create
-          binding.pry
+    name = params[:guest][:name]
+    phone = params[:guest][:phone]
+
     @guest = Guest.new(
-      name: params[:name], 
-      phone: params[:phone]
+      name: name, 
+      phone: phone
       )
-    
     if @guest.save
       @guest.invitations.create(event_id: params[:event_id])
       redirect_to event_confirmation_path(event_id: params[:event_id])
