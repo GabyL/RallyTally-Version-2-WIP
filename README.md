@@ -1,6 +1,6 @@
 # Rally Tally version 2.0 (Work in Progress) 
 ---
-#####** Please refer to Version 1.0 (Sinatra app) for main features *
+#####** Please refer to [Version 1.0 (Sinatra app) ](https://github.com/GabyL/Rally-Tally-Version-1)for main features *
 ## About
 - Rally Tally is an app that makes last-minute event organizing fun & easy via text-message voting.
 - We are in the process of rebuilding it in Rails to better modularize the code.
