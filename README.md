@@ -6,6 +6,11 @@
 - We are in the process of rebuilding it in Rails to better modularize the code.
 - Paired programmed so far by 3mily & GabyL.
 
+## Improvements so far
+- Users can signup & login
+- Events are privatized; only can be viewed by creator.
+- Additional columns to Database tables for increased functionality.
+
 ## Improvements to be implemented
 - Improve UX for text-messages and voting system.
 - Improve UX and UI on pages with the use of AJAX.
